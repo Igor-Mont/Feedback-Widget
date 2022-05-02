@@ -1,9 +1,7 @@
+import { Widget } from './components/Widget'
+
 function App () {
-  return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
-  )
+  return <Widget />
 }
 
 export { App }
