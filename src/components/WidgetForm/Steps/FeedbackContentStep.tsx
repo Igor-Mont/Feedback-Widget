@@ -7,9 +7,10 @@ import { ScreenshotButton } from '../ScreenshotButton'
 type FeedbackContentStepProps = {
   feedbackType: FeedbackType;
   onFeedbackRestartRequest: () => void;
+  onFeedbackSent: () => void;
 }
 
-function FeedbackContentStep ({ feedbackType, onFeedbackRestartRequest }: FeedbackContentStepProps) {
+function FeedbackContentStep ({ feedbackType, onFeedbackRestartRequest, onFeedbackSent }: FeedbackContentStepProps) {
   const [screenshot, setScreenshot] = useState<string | null>(null)
   const [comment, setComment] = useState('')
   const feedbackTypeInfo = feedbackTypes[feedbackType]
@@ -21,6 +22,8 @@ function FeedbackContentStep ({ feedbackType, onFeedbackRestartRequest }: Feedba
       screenshot,
       comment
     })
+
+    onFeedbackSent()
   }
 
   return (
